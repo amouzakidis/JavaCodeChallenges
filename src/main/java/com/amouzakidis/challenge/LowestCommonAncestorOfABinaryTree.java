@@ -13,11 +13,12 @@ public class LowestCommonAncestorOfABinaryTree {
         TreeNode root = new TreeNode(2, tmp1, tmp2);
 
         TreeNode p = tmp1;
-        TreeNode q = tmp2;
 
         tmp1 = new TreeNode(6);
         tmp2 = root;
         root = new TreeNode(5, tmp1, tmp2);
+
+        TreeNode q = root;
 
         tmp1 = new TreeNode(0);
         tmp2 = new TreeNode(8);
@@ -41,7 +42,7 @@ public class LowestCommonAncestorOfABinaryTree {
             return null;
         }
         TreeNode ret = pathToP.getFirst();
-        while( pathToP.getFirst() == pathToQ.getFirst() ) {
+        while( !pathToP.isEmpty() && !pathToQ.isEmpty() && pathToP.getFirst() == pathToQ.getFirst() ) {
             ret = pathToP.getFirst();
             pathToP.removeFirst();
             pathToQ.removeFirst();
